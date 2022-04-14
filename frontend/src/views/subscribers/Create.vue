@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import SubscriberCreateEditForm from "@/components/SubscriberCreateEditForm.vue";
+import SubscriberCreateEditForm from "../../components/SubscriberCreateEditForm.vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();

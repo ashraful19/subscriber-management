@@ -1,5 +1,5 @@
 <script setup>
-import NavMenu from "@/components/layouts/NavMenu.vue";
+import NavMenu from "./NavMenu.vue";
 </script>
 <template>
     <div class="navbar bg-green-600 text-neutral-content lg:px-5">

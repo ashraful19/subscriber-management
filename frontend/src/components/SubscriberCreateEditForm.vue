@@ -88,8 +88,8 @@
 </template>
 
 <script setup>
-import CustomField from "@/components/CustomField.vue";
-import ValidationError from "@/components/ValidationError.vue";
+import CustomField from "./CustomField.vue";
+import ValidationError from "./ValidationError.vue";
 import Swal from "sweetalert2";
 import { reactive, ref, onMounted, inject } from "vue";
 import { useRoute } from "vue-router";
