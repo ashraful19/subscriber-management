@@ -17,7 +17,7 @@
  - [x] Developed using Laravel (as backend api) + VueJs (as frontend ui) + TailwindCSS (as ui framework)
 
 ## Demo
-**Visit for Demo** ---> [https://submanage.ashrafulislam.info](https://submanage.ashrafulislam.info)
+**Visit for Demo** ---> [https://subm.ashrafulislam.info](https://subm.ashrafulislam.info)
 
 ## Local Installation
 Clone the repository in your local machine using `git clone https://github.com/ashraful19/subscriber-management`
