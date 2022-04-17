@@ -19,10 +19,41 @@
 ## Demo
 **Visit for Demo** ---> [https://subm.ashrafulislam.info](https://subm.ashrafulislam.info)
 
-## Local Installation
+## Installation
 Clone the repository in your local machine using `git clone https://github.com/ashraful19/subscriber-management`
 
-### *Requirements* for Local Environment
+### Run project with Docker
+#### Running Backend API
+ 1. Open terminal/command promt from inside the `subscriber-management/backend` folder
+ 2. un command `cp .env.example .env`
+ 3. run command 
+```
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    composer install --ignore-platform-reqs
+```
+ 4. run `./vendor/bin/sail up -d`
+ 5. run `./vendor/bin/sail php artisan migrate`
+
+> At this point you have the backend application ready at `http://localhost:8000` to receive rest api calls from frontend ui
+
+ 6. Run command `./vendor/bin/sail php artisan test` to execute unit test cases
+ 7. Run command `./vendor/bin/sail php artisan db:seed` to populate database with dummy data
+
+#### Running Frontend UI
+ 1. Open terminal/command promt from inside the `subscriber-management/frontend` folder
+ 2. run command `cp .env.example .env`
+ 3. run command `docker-compose up -d`
+
+> At this point you have the frontend ui application ready
+> ready to browse. Just open your browser and navigate to
+> `http://localhost:3000` and you should see the Subscriber-Management site home page
+
+### Run project Manually
+#### *Requirements* for Local Environment
 
  - [x] PHP Version 8.0
  - [x] NodeJs Version 14 (Have tested on v14, but should be okay with v12 also)
@@ -31,23 +62,20 @@ Clone the repository in your local machine using `git clone https://github.com/a
 > Before starting below points, please make sure your `8000` and `3000` ports are free. 
 > On Mac if you have `valet` running please stop it using 'valet stop' before going forward
 
-### Running Backend API
+#### Running Backend API
  1. Open terminal/command promt from inside the `subscriber-management/backend` folder
  2. run command `cp .env.example .env`
- 3. update `.env` file database informations according to your local machine.
+ 3. update `.env` file database informations (DB_DATABASE, DB_USERNAME, DB_PASSWORD) according to your local machine.
  4. run command `composer install`
  5. run command `php artisan migrate`
  6. run command `php artisan serve`
 
 > At this point you have the backend application ready at `http://localhost:8000` to receive rest api calls from frontend ui
 
-#### Running Unit Tests
-7. Run command `php artisan test` to execute unit test cases
+ 7. Run command `php artisan test` to execute unit test cases
+ 8. Run command `php artisan db:seed` to populate database with dummy data
 
-#### Populate database with dummy data
-8. Run command `php artisan db:seed` to populate database with dummy data
-
-### Running Frontend UI
+#### Running Frontend UI
  1. Open terminal/command promt from inside the `subscriber-management/frontend` folder
  2. run command `cp .env.example .env`
  3. run command `npm install`
@@ -69,6 +97,7 @@ Clone the repository in your local machine using `git clone https://github.com/a
 	 - **Reusable Component** based structure
 	 - **Vue3 Composition API** used
  - Used **TailwindCSS** and **DaisyUI**
+ - **Docker** based setup
 
 ## Scope of Improvements
 1. **User Authentication** can be provided to use this in a bigger scale. Currently the application is in a public/single scope sense.
@@ -77,4 +106,4 @@ Clone the repository in your local machine using `git clone https://github.com/a
 
 ## To Do
 
- - [ ] Docker implementation
+ - [x] Docker implementation
